@@ -6,7 +6,7 @@ Stop trusting tools and utilities given by random website! Use https://inbrowser
 
 - Security / privacy is the number one priority
 - Everything happens in the browser
-- No post processing for source code for readability
+- No post source code processing for readability
 - Keep everything simple
 
 ## Planned tools
