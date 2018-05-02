@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    background-image: url('./hypnotize.png');
+    background-size: initial;
+    background-position: 0 0;
+    background-repeat: repeat;
+    color: #333333;
+}
+hr {
+    border: 0;
+    border-top: 1px solid #dddddd;
+    margin: 30px 0;
+}
+footer {
+    font-size: 10px;
+    color: #999999;
+    text-align: center;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px;
+    overflow: hidden;
+    background-color: rgba(255,255,255,.7);
+}
+.center {
+    text-align: center;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0.7em 0;
+    text-align: center;
+}
+h1 a {
+    color: #333333;
+    text-decoration: none;
+}
+textarea,
+label {
+    vertical-align: top;
+    display: inline-block;
+}
+button {
+    cursor: pointer;
+}
+textarea {
+    min-height: 100px;
+}
+label {
+    font-weight: 700;
+}
+#github {
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+#github img {
+    width: 60px;
+    height: 60px;
+    display: block;
+}
+.site-index {
+    font-size: 18px;
+}

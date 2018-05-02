@@ -1,0 +1,15 @@
+{
+  "name": "inbrowser.tools",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:xinsnake/inbrowser.tools.git",
+  "author": "Xinyun Zhou <me@xyzhou.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^1.0.2",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-pug": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.1"
+  }
+}
