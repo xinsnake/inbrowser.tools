@@ -1,0 +1,12 @@
+extends ../_base.pug
+
+block content
+    h2 json formatter
+    p.center
+        label json goes here
+        #json(data-language="javascript", style="height: 300px")
+        #error-msg.error
+    p.center
+        button#prettify Prettify
+        button#minify Minify
+    script(src="json-fmt.js")

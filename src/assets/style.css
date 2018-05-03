@@ -59,8 +59,16 @@ button {
 .CodeFlask__textarea, .CodeFlask__pre, code[class*="language-"], pre[class*="language-"] {
     font-size: 16px;
 }
-code[class*="language-plain"], pre[class*="language-plain"] {
+code[class*="language-javascript"],
+pre[class*="language-javascript"],
+code[class*="language-plain"],
+pre[class*="language-plain"] {
     color: #333333;
+}
+.error {
+    color: #dd0000;
+    margin: 0.5em 0;
+    text-align: center;
 }
 #github {
     display: block;
