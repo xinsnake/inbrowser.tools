@@ -6,11 +6,13 @@
   "author": "Xinyun Zhou <me@xyzhou.com>",
   "license": "MIT",
   "devDependencies": {
+    "codeflask": "^0.3.1",
     "grunt": "^1.0.2",
     "grunt-aws-s3": "^2.0.0",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-pug": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.1"
+    "grunt-contrib-watch": "^1.0.1",
+    "normalize.css": "^8.0.0"
   }
 }

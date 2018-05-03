@@ -48,6 +48,24 @@ module.exports = function(grunt) {
             dest: "dist/"
           }
         ]
+      },
+      vendor: {
+        files: [
+          {
+            expand: true,
+            cwd: "./node_modules/",
+            src: [
+              "normalize.css/normalize.css",
+              "prismjs/themes/prism.css",
+              "prismjs/themes/prism-tomorrow.css",
+              "prismjs/prism.js",
+              "codeflask/src/codeflask.css",
+              "codeflask/src/codeflask.js"
+            ],
+            flatten: true,
+            dest: "dist/vendor/"
+          }
+        ]
       }
     },
     clean: ["./dist"],
@@ -65,6 +83,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-pug")
   grunt.loadNpmTasks("grunt-contrib-watch")
 
-  grunt.registerTask("default", ["clean", "pug", "copy", "watch"])
-  grunt.registerTask("deploy", ["clean", "pug", "copy", "aws_s3"])
+  grunt.registerTask("default", ["clean", "pug", "copy:assets", "copy:vendor", "watch"])
+  grunt.registerTask("deploy", ["clean", "pug", "copy:assets", "copy:vendor", "aws_s3"])
 }

@@ -44,19 +44,23 @@ h1 a {
     color: #333333;
     text-decoration: none;
 }
-textarea,
 label {
-    vertical-align: top;
     display: inline-block;
+    font-weight: 700;
 }
 button {
     cursor: pointer;
 }
-textarea {
-    min-height: 100px;
+.CodeFlask {
+    height: 120px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
 }
-label {
-    font-weight: 700;
+.CodeFlask__textarea, .CodeFlask__pre, code[class*="language-"], pre[class*="language-"] {
+    font-size: 16px;
+}
+code[class*="language-plain"], pre[class*="language-plain"] {
+    color: #333333;
 }
 #github {
     display: block;
