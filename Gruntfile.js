@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   grunt.initConfig({
     aws: grunt.file.readJSON("aws-keys.json"),
     aws_s3: {
@@ -16,9 +16,12 @@ module.exports = function(grunt) {
             ContentEncoding: "gzip"
           }
         },
-        files: [
-          { expand: true, cwd: "dist/", src: ["**"], dest: "/" }
-        ]
+        files: [{
+          expand: true,
+          cwd: "dist/",
+          src: ["**"],
+          dest: "/"
+        }]
       }
     },
     pug: {
@@ -27,45 +30,40 @@ module.exports = function(grunt) {
           compileDebug: true,
           pretty: true
         },
-        files: [
-          {
-            expand: true,
-            cwd: "./src/",
-            src: ["**/*.pug", "!**/_*.pug"],
-            dest: "./dist/",
-            ext: ".html"
-          }
-        ]
+        files: [{
+          expand: true,
+          cwd: "./src/",
+          src: ["**/*.pug", "!**/_*.pug"],
+          dest: "./dist/",
+          ext: ".html"
+        }]
       }
     },
     copy: {
       assets: {
-        files: [
-          {
-            expand: true,
-            cwd: "./src/",
-            src: ["assets/**/*.*", "**/*.js"],
-            dest: "dist/"
-          }
-        ]
+        files: [{
+          expand: true,
+          cwd: "./src/",
+          src: ["assets/**/*.*", "**/*.js", "favicon.ico"],
+          dest: "dist/"
+        }]
       },
       vendor: {
-        files: [
-          {
-            expand: true,
-            cwd: "./node_modules/",
-            src: [
-              "normalize.css/normalize.css",
-              "prismjs/themes/prism.css",
-              "prismjs/themes/prism-tomorrow.css",
-              "prismjs/prism.js",
-              "codeflask/src/codeflask.css",
-              "codeflask/src/codeflask.js"
-            ],
-            flatten: true,
-            dest: "dist/vendor/"
-          }
-        ]
+        files: [{
+          expand: true,
+          cwd: "./node_modules/",
+          src: [
+            "codeflask/src/codeflask.css",
+            "codeflask/src/codeflask.js",
+            "js-yaml/dist/js-yaml.js",
+            "normalize.css/normalize.css",
+            "prismjs/prism.js",
+            "prismjs/themes/prism-tomorrow.css",
+            "prismjs/themes/prism.css"
+          ],
+          flatten: true,
+          dest: "dist/vendor/"
+        }]
       }
     },
     clean: ["./dist"],

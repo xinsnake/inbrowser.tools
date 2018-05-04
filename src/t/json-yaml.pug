@@ -1,0 +1,17 @@
+extends ../_base.pug
+
+block content
+    h2 json yaml converter
+    p.center
+        label json
+        #json(data-language="javascript", style="height: 300px")
+    p.center
+        button#to-yaml to yaml
+        button#to-json to json
+        button#clear Clear
+        #error-msg.error
+    p.center
+        label yaml
+        #yaml(data-language="yaml", style="height: 300px")
+    script(src="/vendor/js-yaml.js")
+    script(src="json-yaml.js")

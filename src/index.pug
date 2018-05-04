@@ -1,6 +1,18 @@
 extends _base.pug
 
 block content
-    ul.site-index
+    h3 tools
+    ul.site-index.center
         li base64 converter: <a href="/t/base64.html">open</a>
         li json formatter: <a href="/t/json-fmt.html">open</a>
+        li json yaml converter: <a href="/t/json-yaml.html">open</a>
+    br
+    br
+    h3 why this site?
+    p.center(style="max-width: 400px; margin: 10px auto; line-height: 1.3em; font-size: 14px;")
+        | Simply because I don't trust other online tools, especially those that send data to the server to process.
+        | They may be storing the data I send to them.
+    p.center(style="max-width: 400px; margin: 10px auto; line-height: 1.3em; font-size: 14px;")
+        | Whereas here, everything happens in <em>your browser</em>, and never leave your browser.
+    p.center(style="max-width: 400px; margin: 10px auto; line-height: 1.3em; font-size: 14px;")
+        | No ads, no tracking, no anything, just the bare minimum needed to make the tool useful.
