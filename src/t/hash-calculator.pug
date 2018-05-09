@@ -1,0 +1,60 @@
+extends ../_base.pug
+
+block content
+    h2 hash generator
+    .center.gap
+        label method
+        br
+        label.option
+            input(type="radio" name="method" value="MD5")
+            | &nbsp;
+            span md5
+        label.option
+            input(type="radio" name="method" value="SHA1")
+            | &nbsp;
+            span sha1
+        label.option
+            input(type="radio" name="method" value="SHA256")
+            | &nbsp;
+            span sha256
+        label.option
+            input(type="radio" name="method" value="SHA224")
+            | &nbsp;
+            span sha224
+        label.option
+            input(type="radio" name="method" value="SHA384")
+            | &nbsp;
+            span sha384
+        label.option
+            input(type="radio" name="method" value="SHA512")
+            | &nbsp;
+            span sha512
+        label.option
+            input(type="radio" name="method" value="SHA3")
+            | &nbsp;
+            span sha3
+        label.option
+            input(type="radio" name="method" value="RIPEMD160")
+            | &nbsp;
+            span ripemd160
+        br
+        br
+        label with hmac
+        br
+        label.option
+            input(type="checkbox" name="hmac" value="Hmac")
+            | &nbsp;
+            span yes please
+        br
+        .hmac(style="display: none;")
+            br
+            label hmac key
+            #hmac(data-language="plain")
+        br
+        label text
+        #text(data-language="plain")
+    .center.gap
+        label result
+        #result(data-language="plain")
+    script(src="/vendor/crypto-js.js")
+    script(src="hash-calculator.js")

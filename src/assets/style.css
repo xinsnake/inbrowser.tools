@@ -47,6 +47,17 @@ h1 a {
 label {
     display: inline-block;
     font-weight: 700;
+    cursor: pointer;
+    vertical-align: center;
+}
+label.option,
+label.option input,
+label.option span {
+    display: inline-block;
+    font-weight: 400;
+}
+label.option:hover {
+    background-color: #eeeeee;
 }
 button {
     cursor: pointer;
@@ -71,6 +82,10 @@ pre[class*="language-plain"] {
     color: #dd0000;
     margin: 0.5em 0;
     text-align: center;
+}
+.gap {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 #github {
     display: block;

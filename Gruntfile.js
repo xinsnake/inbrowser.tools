@@ -11,10 +11,7 @@ module.exports = function (grunt) {
       },
       production: {
         options: {
-          bucket: "inbrowser.tools",
-          params: {
-            ContentEncoding: "gzip"
-          }
+          bucket: "inbrowser.tools"
         },
         files: [{
           expand: true,
@@ -53,6 +50,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: "./node_modules/",
           src: [
+            "crypto-js/crypto-js.js",
             "codeflask/src/codeflask.css",
             "codeflask/src/codeflask.js",
             "js-yaml/dist/js-yaml.js",

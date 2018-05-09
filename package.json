@@ -15,5 +15,8 @@
     "grunt-contrib-watch": "^1.0.1",
     "js-yaml": "^3.11.0",
     "normalize.css": "^8.0.0"
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.9-1"
   }
 }
