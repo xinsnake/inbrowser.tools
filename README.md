@@ -1,28 +1,29 @@
 # inbrowser.tools
 
-Stop trusting tools and utilities given by random website! Use https://inbrowser.tools to protect your data.
+## Project setup
+```
+yarn install
+```
 
-## Project philosophy
+### Compiles and hot-reloads for development
+```
+yarn run serve
+```
 
-- Security / privacy is the number one priority
-- Everything happens in the browser
-- JavaScript is inline and no post processing for readability
-- Keep everything simple
+### Compiles and minifies for production
+```
+yarn run build
+```
 
-## Planned tools
+### Run your tests
+```
+yarn run test
+```
 
-- Random string generator
-- UUID generator
-- Json/Yaml converter
-- ✓ Base64 converter
+### Lints and fixes files
+```
+yarn run lint
+```
 
-## Want to contribute?
-
-Please create a PR!
-
-### To write code:
-
-- Make sure you have working `grunt` and `http-server`
-- Run `grunt` to start processing the `pug` template
-- Execute `http-server ./dist -a 127.0.0.1 -p 3000` to enable server
-- Visit `http://localhost:3000` to check your pages
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
