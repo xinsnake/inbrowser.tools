@@ -1,14 +1,94 @@
 <template>
   <div class="json">
-    <h2>json formatter</h2>
-    <div class="center">
-      <label>json goes here</label>
-      <div id="json" data-language="javascript" style="height: 300px"></div>
-      <div class="error" id="error-msg"></div>
-    </div>
-    <div class="center">
-      <button id="prettify">Prettify</button>
-      <button id="minify">Minify</button>
-    </div>
+    <h2>JSON</h2>
+    <b-row>
+      <b-col>
+        <label>JSON</label>
+        <b-form-textarea
+          v-model="json"
+          rows="6"
+          max-rows="6"
+        ></b-form-textarea>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col>
+        <br/>
+        <b-alert v-model="isError" variant="danger" dismissible>
+          {{ error }}
+        </b-alert>
+        <b-alert v-model="isValid" variant="success" dismissible>
+          JSON is valid!
+        </b-alert>
+        <b-button @click="validate()" variant="primary">Validate</b-button>&nbsp;
+        <b-button @click="format()" variant="primary">Format</b-button>&nbsp;
+        <b-button @click="minimise()" variant="primary">Minimise</b-button>&nbsp;
+        <b-button @click="clear" variant="warning">Clear</b-button>
+      </b-col>
+    </b-row>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'json',
+  components: {},
+  data() {
+    return {
+      json: '',
+      isError: false,
+      isValid: false,
+      error: null,
+    };
+  },
+  methods: {
+    validate() {
+      try {
+        JSON.parse(this.json);
+
+        this.isValid = true;
+        this.isError = false;
+        this.error = null;
+      } catch (err) {
+        this.isValid = false;
+        this.isError = true;
+        this.error = 'JSON is not valid!';
+      }
+    },
+    format() {
+      try {
+        const o = JSON.parse(this.json);
+        this.json = JSON.stringify(o, null, 2);
+
+        this.isValid = true;
+        this.isError = false;
+        this.error = null;
+      } catch (err) {
+        this.isValid = false;
+        this.isError = true;
+        this.error = 'Invalid JSON string!';
+      }
+    },
+    minimise() {
+      try {
+        const o = JSON.parse(this.json);
+        this.json = JSON.stringify(o);
+
+        this.isValid = true;
+        this.isError = false;
+        this.error = null;
+      } catch (err) {
+        this.isValid = false;
+        this.isError = true;
+        this.error = 'Invalid JSON string!';
+      }
+    },
+    clear() {
+      this.json = '';
+      this.isValid = false;
+      this.isError = false;
+      this.error = null;
+    },
+  },
+};
+</script>

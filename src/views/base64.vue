@@ -1,26 +1,39 @@
 <template>
   <div class="baes64">
-    <h2>base64 converter</h2>
-    <div class="center">
-      <label>Plain</label>
-      <div id="plain" data-language="plain"></div>
-    </div>
-    <div class="center">
-      <button id="encode">Encode</button>
-      <button id="decode">Decode</button>
-      <button id="clear">Clear</button>
-    </div>
-    <div class="center">
-      <label>Encoded</label>
-      <div id="encoded" data-language="plain"></div>
-    </div>
+    <h2>Base64</h2>
+    <b-row>
+      <b-col>
+        <label>Plain</label>
+        <b-form-textarea
+          v-model="plain"
+          rows="6"
+          max-rows="6"
+        ></b-form-textarea>
+      </b-col>
+      <b-col>
+        <label>Encoded</label>
+        <b-form-textarea
+          v-model="encoded"
+          rows="6"
+          max-rows="6"
+        ></b-form-textarea>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col>
+        <br/>
+        <b-alert v-model="isError" variant="danger" dismissible>
+          {{ error }}
+        </b-alert>
+        <b-button @click="encode" variant="primary">Encode</b-button>&nbsp;
+        <b-button @click="decode" variant="primary">Decode</b-button>&nbsp;
+        <b-button @click="clear" variant="warning">Clear</b-button>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue';
-
 export default {
   name: 'base64',
   components: {},
@@ -28,17 +41,31 @@ export default {
     return {
       plain: '',
       encoded: '',
+      isError: false,
+      error: null,
     };
   },
   methods: {
     encode() {
-
+      this.encoded = btoa(this.plain);
+      this.isError = false;
+      this.error = null;
     },
     decode() {
-
+      try {
+        this.plain = atob(this.encoded);
+        this.isError = false;
+        this.error = null;
+      } catch (err) {
+        this.isError = true;
+        this.error = 'Invalid Base64 string!';
+      }
     },
     clear() {
-
+      this.plain = '';
+      this.encoded = '';
+      this.isError = false;
+      this.error = null;
     },
   },
 };

@@ -1,19 +1,86 @@
 <template>
   <div class="json-yaml">
-    <h2>json yaml converter</h2>
-    <div class="center">
-      <label>json</label>
-      <div id="json" data-language="javascript" style="height: 300px"></div>
-    </div>
-    <div class="center">
-      <button id="to-yaml">to yaml</button>
-      <button id="to-json">to json</button>
-      <button id="clear">Clear</button>
-      <div class="error" id="error-msg"></div>
-    </div>
-    <div class="center">
-      <label>yaml</label>
-      <div id="yaml" data-language="yaml" style="height: 300px"></div>
-    </div>
+    <h2>JSON/YAML</h2>
+    <b-row>
+      <b-col>
+        <label>JSON</label>
+        <b-form-textarea
+          v-model="json"
+          rows="6"
+          max-rows="6"
+        ></b-form-textarea>
+      </b-col>
+      <b-col>
+        <label>YAML</label>
+        <b-form-textarea
+          v-model="yaml"
+          rows="6"
+          max-rows="6"
+        ></b-form-textarea>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col>
+        <br/>
+        <b-alert v-model="isError" variant="danger" dismissible>
+          {{ error }}
+        </b-alert>
+        <b-button @click="tojson(false)" variant="primary">To JSON</b-button>&nbsp;
+        <b-button @click="tojson(true)" variant="primary">To JSON (Formatted)</b-button>&nbsp;
+        <b-button @click="toyaml" variant="primary">To YAML</b-button>&nbsp;
+        <b-button @click="clear" variant="warning">Clear</b-button>
+      </b-col>
+    </b-row>
   </div>
 </template>
+
+<script>
+import jsyaml from 'js-yaml';
+
+export default {
+  name: 'json-yaml',
+  components: {},
+  data() {
+    return {
+      json: '',
+      yaml: '',
+      isError: false,
+      error: null,
+    };
+  },
+  methods: {
+    tojson(pretty) {
+      try {
+        const s = jsyaml.safeLoad(this.yaml);
+        if (pretty) {
+          this.json = JSON.stringify(s, null, 2);
+        } else {
+          this.json = JSON.stringify(s);
+        }
+        this.isError = false;
+        this.error = null;
+      } catch (err) {
+        this.isError = true;
+        this.error = 'Invalid YAML string!';
+      }
+    },
+    toyaml() {
+      try {
+        const s = jsyaml.safeLoad(this.json);
+        this.yaml = jsyaml.safeDump(s);
+        this.isError = false;
+        this.error = null;
+      } catch (err) {
+        this.isError = true;
+        this.error = 'Invalid JSON string!';
+      }
+    },
+    clear() {
+      this.json = '';
+      this.yaml = '';
+      this.isError = false;
+      this.error = null;
+    },
+  },
+};
+</script>

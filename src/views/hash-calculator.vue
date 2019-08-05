@@ -1,6 +1,6 @@
 <template>
-  <div class="hash-calculator">
-    <h2>hash generator</h2>
+  <div class="hash">
+    <h2>Hash</h2>
     <div class="center gap">
       <label>method</label><br>
       <label class="option">

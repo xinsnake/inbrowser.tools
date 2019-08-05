@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h2>why this site?</h2>
+    <h2>Why this site?</h2>
     <p class="center">
       Simply because I don't trust other online tools, especially
       those that send data to the server to process.
@@ -14,15 +14,3 @@
     </p>
   </div>
 </template>
-
-<script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue';
-
-export default {
-  name: 'home',
-  components: {
-    // HelloWorld,
-  },
-};
-</script>
