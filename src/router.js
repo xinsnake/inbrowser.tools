@@ -5,7 +5,7 @@ import Home from './views/home.vue';
 import Base64 from './views/base64.vue';
 import Json from './views/json.vue';
 import JsonYaml from './views/json-yaml.vue';
-import HashCalculator from './views/hash-calculator.vue';
+import Hash from './views/hash.vue';
 
 Vue.use(Router);
 
@@ -34,9 +34,9 @@ export default new Router({
       component: JsonYaml,
     },
     {
-      path: '/hash-calculator',
-      name: 'hash-calculator',
-      component: HashCalculator,
+      path: '/hash',
+      name: 'hash',
+      component: Hash,
     },
   ],
 });
