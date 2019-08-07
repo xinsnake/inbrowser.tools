@@ -46,26 +46,30 @@ export default {
     };
   },
   methods: {
-    encode() {
-      this.encoded = btoa(this.plain);
+    clearError() {
       this.isError = false;
       this.error = null;
+    },
+    setError(message) {
+      this.isError = true;
+      this.error = message;
+    },
+    encode() {
+      this.encoded = btoa(this.plain);
+      this.clearError();
     },
     decode() {
       try {
         this.plain = atob(this.encoded);
-        this.isError = false;
-        this.error = null;
+        this.clearError();
       } catch (err) {
-        this.isError = true;
-        this.error = 'Invalid Base64 string!';
+        setError('Invalid Base64 string!')
       }
     },
     clear() {
       this.plain = '';
       this.encoded = '';
-      this.isError = false;
-      this.error = null;
+      this.clearError();
     },
   },
 };

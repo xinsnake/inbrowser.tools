@@ -49,6 +49,14 @@ export default {
     };
   },
   methods: {
+    clearError() {
+      this.isError = false;
+      this.error = null;
+    },
+    setError(message) {
+      this.isError = true;
+      this.error = 'Invalid JSON string!';
+    },
     tojson(pretty) {
       try {
         const s = jsyaml.safeLoad(this.yaml);
@@ -57,29 +65,24 @@ export default {
         } else {
           this.json = JSON.stringify(s);
         }
-        this.isError = false;
-        this.error = null;
+        this.clearError();
       } catch (err) {
-        this.isError = true;
-        this.error = 'Invalid YAML string!';
+        this.setError('Invalid YAML string!');
       }
     },
     toyaml() {
       try {
         const s = jsyaml.safeLoad(this.json);
         this.yaml = jsyaml.safeDump(s);
-        this.isError = false;
-        this.error = null;
+        this.clearError();
       } catch (err) {
-        this.isError = true;
-        this.error = 'Invalid JSON string!';
+        this.setError('Invalid JSON string!');
       }
     },
     clear() {
       this.json = '';
       this.yaml = '';
-      this.isError = false;
-      this.error = null;
+      this.clearError();
     },
   },
 };

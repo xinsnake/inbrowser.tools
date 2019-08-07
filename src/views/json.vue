@@ -42,52 +42,50 @@ export default {
     };
   },
   methods: {
+    setValid() {
+      this.isValid = true;
+      this.isError = false;
+      this.error = null;
+    },
+    clearError() {
+      this.isValid = false;
+      this.isError = false;
+      this.error = null;
+    },
+    setError(message) {
+      this.isValid = false;
+      this.isError = true;
+      this.error = message;
+    },
     validate() {
       try {
         JSON.parse(this.json);
-
-        this.isValid = true;
-        this.isError = false;
-        this.error = null;
+        this.setValid();
       } catch (err) {
-        this.isValid = false;
-        this.isError = true;
-        this.error = 'JSON is not valid!';
+        this.setError('JSON is not valid!');
       }
     },
     format() {
       try {
         const o = JSON.parse(this.json);
         this.json = JSON.stringify(o, null, 2);
-
-        this.isValid = true;
-        this.isError = false;
-        this.error = null;
+        this.setValid();
       } catch (err) {
-        this.isValid = false;
-        this.isError = true;
-        this.error = 'Invalid JSON string!';
+        this.setError('Invalid JSON string!');
       }
     },
     minimise() {
       try {
         const o = JSON.parse(this.json);
         this.json = JSON.stringify(o);
-
-        this.isValid = true;
-        this.isError = false;
-        this.error = null;
+        this.setValid();
       } catch (err) {
-        this.isValid = false;
-        this.isError = true;
-        this.error = 'Invalid JSON string!';
+        this.setError('Invalid JSON string!');
       }
     },
     clear() {
       this.json = '';
-      this.isValid = false;
-      this.isError = false;
-      this.error = null;
+      this.clearError();
     },
   },
 };
