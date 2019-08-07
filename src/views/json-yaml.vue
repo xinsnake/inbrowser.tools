@@ -55,7 +55,7 @@ export default {
     },
     setError(message) {
       this.isError = true;
-      this.error = 'Invalid JSON string!';
+      this.error = message;
     },
     tojson(pretty) {
       try {

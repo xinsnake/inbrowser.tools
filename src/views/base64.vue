@@ -63,7 +63,7 @@ export default {
         this.plain = atob(this.encoded);
         this.clearError();
       } catch (err) {
-        setError('Invalid Base64 string!')
+        this.setError('Invalid Base64 string!');
       }
     },
     clear() {
