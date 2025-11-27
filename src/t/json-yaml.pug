@@ -1,17 +1,18 @@
 extends ../_base.pug
 
 block content
-    h2 json yaml converter
-    p.center
-        label json
-        #json(data-language="javascript", style="height: 300px")
-    p.center
-        button#to-yaml to yaml
-        button#to-json to json
-        button#clear Clear
-        #error-msg.error
-    p.center
-        label yaml
-        #yaml(data-language="yaml", style="height: 300px")
-    script(src="/vendor/js-yaml.js")
-    script(src="json-yaml.js")
+    article
+        h2 JSON YAML Converter
+        .center.gap
+            label JSON
+            textarea#json(rows="12")
+        .center.gap
+            button#to-yaml To YAML
+            button#to-json To JSON
+            button#clear Clear
+            #error-msg.error
+        .center.gap
+            label YAML
+            textarea#yaml(rows="12")
+        script(src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.1/dist/js-yaml.min.js")
+        script(src="json-yaml.js?v=20251127")

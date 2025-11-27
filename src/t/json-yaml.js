@@ -3,15 +3,13 @@ const toYamlElm = document.getElementById("to-yaml")
 const clearElm = document.getElementById("clear")
 const errorElm = document.getElementById("error-msg")
 
-const flaskJson = new CodeFlask()
-flaskJson.run("#json")
-const flaskYaml = new CodeFlask()
-flaskYaml.run("#yaml")
+const json = document.getElementById("json")
+const yaml = document.getElementById("yaml")
 
 const getYaml = (s) => {
   try {
     errorElm.style.display = "none"
-    return jsyaml.safeLoad(s)
+    return jsyaml.load(s)
   } catch (e) {
     errorElm.innerHTML = e.message
     errorElm.style.display = "block"
@@ -19,18 +17,18 @@ const getYaml = (s) => {
 }
 
 toYamlElm.addEventListener("click", e => {
-  const t = getYaml(flaskJson.textarea.value)
+  const t = getYaml(json.value)
   if (!t) return
-  flaskYaml.update(jsyaml.safeDump(t))
+  yaml.value = jsyaml.dump(t)
 })
 
 toJsonElm.addEventListener("click", e => {
-  const t = getYaml(flaskYaml.textarea.value)
+  const t = getYaml(yaml.value)
   if (!t) return
-  flaskJson.update(JSON.stringify(t, "", "  "))
+  json.value = JSON.stringify(t, "", "  ")
 })
 
 clearElm.addEventListener("click", e => {
-  flaskJson.update("")
-  flaskYaml.update("")
+  json.value = ""
+  yaml.value = ""
 })

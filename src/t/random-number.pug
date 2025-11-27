@@ -1,0 +1,25 @@
+extends ../_base.pug
+
+block content
+    article
+        h2 Random Number Generator
+        .center.gap
+            label Minimum
+            input(type="number" id="min" value="1" style="width: 150px; text-align: center;")
+            label Maximum
+            input(type="number" id="max" value="100" style="width: 150px; text-align: center;")
+            label Quantity
+            input(type="number" id="quantity" value="1" min="1" max="1000" style="width: 150px; text-align: center;")
+            label Options
+            label.option
+                input(type="checkbox" id="unique" value="unique")
+                | &nbsp;
+                span Unique numbers only
+            label.option
+                input(type="checkbox" id="sorted" value="sorted")
+                | &nbsp;
+                span Sort results
+            button#generate Generate Numbers
+            label Result
+            textarea#result(rows="12" readonly)
+            script(src="random-number.js?v=20251127")

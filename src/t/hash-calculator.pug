@@ -1,60 +1,54 @@
 extends ../_base.pug
 
 block content
-    h2 hash generator
-    .center.gap
-        label method
-        br
+    article
+        h2 Hash Generator
+        .center.gap
+            label Method
         label.option
             input(type="radio" name="method" value="MD5")
             | &nbsp;
-            span md5
+            span MD5
         label.option
             input(type="radio" name="method" value="SHA1")
             | &nbsp;
-            span sha1
+            span SHA1
         label.option
             input(type="radio" name="method" value="SHA256")
             | &nbsp;
-            span sha256
+            span SHA256
         label.option
             input(type="radio" name="method" value="SHA224")
             | &nbsp;
-            span sha224
+            span SHA224
         label.option
             input(type="radio" name="method" value="SHA384")
             | &nbsp;
-            span sha384
+            span SHA384
         label.option
             input(type="radio" name="method" value="SHA512")
             | &nbsp;
-            span sha512
+            span SHA512
         label.option
             input(type="radio" name="method" value="SHA3")
             | &nbsp;
-            span sha3
+            span SHA3
         label.option
             input(type="radio" name="method" value="RIPEMD160")
             | &nbsp;
-            span ripemd160
-        br
-        br
-        label with hmac
-        br
+            span RIPEMD160
+        label With HMAC
         label.option
             input(type="checkbox" name="hmac" value="Hmac")
             | &nbsp;
-            span yes please
-        br
+            span Yes please
         .hmac(style="display: none;")
-            br
-            label hmac key
-            #hmac(data-language="plain")
-        br
-        label text
-        #text(data-language="plain")
-    .center.gap
-        label result
-        #result(data-language="plain")
-    script(src="/vendor/crypto-js.js")
-    script(src="hash-calculator.js")
+            label HMAC Key
+            textarea#hmac(rows="3")
+        label Text
+        textarea#text(rows="6")
+        .center.gap
+            label Result
+            textarea#result(rows="6" readonly)
+        script(src="https://cdn.jsdelivr.net/npm/crypto-js@3.1.9-1/crypto-js.js")
+        script(src="hash-calculator.js?v=20251127")

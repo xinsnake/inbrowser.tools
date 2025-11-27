@@ -1,0 +1,28 @@
+extends ../_base.pug
+
+block content
+    article
+        h2 JWT Token Decoder
+        .center.gap
+            label JWT Token
+            textarea#jwt-input(rows="6" placeholder="Paste your JWT token here...")
+            button#decode Decode
+            button#clear Clear
+            #error-msg.error
+    
+    article
+        h3 Header
+        .center.gap
+            textarea#header(rows="6" readonly)
+    
+    article
+        h3 Payload
+        .center.gap
+            textarea#payload(rows="12" readonly)
+    
+    article
+        h3 Signature
+        .center.gap
+            textarea#signature(rows="3" readonly)
+            p(style="font-size: 0.85rem; color: var(--pico-muted-color);") Note: This tool only decodes JWT tokens. It does not verify signatures.
+            script(src="jwt-decoder.js?v=20251127a")

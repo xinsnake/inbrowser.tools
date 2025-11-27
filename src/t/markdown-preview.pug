@@ -1,0 +1,16 @@
+extends ../_base.pug
+
+block content
+    article
+        h2 Markdown to HTML Preview
+        .center.gap
+            label Markdown
+            textarea#markdown(rows="12")
+        .center.gap
+            button#copy-html Copy HTML
+
+    article
+        .center.gap
+            #preview.markdown-preview
+            script(src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js")
+            script(src="markdown-preview.js?v=20251127")

@@ -2,20 +2,26 @@ const encodeElm = document.getElementById("encode")
 const decodeElm = document.getElementById("decode")
 const clearElm = document.getElementById("clear")
 
-const flaskPlain = new CodeFlask()
-flaskPlain.run("#plain")
-const flaskEncoded = new CodeFlask()
-flaskEncoded.run("#encoded")
+const plainText = document.getElementById("plain")
+const encodedText = document.getElementById("encoded")
 
 encodeElm.addEventListener("click", e => {
-  flaskEncoded.update(btoa(flaskPlain.textarea.value))
+  try {
+    encodedText.value = btoa(plainText.value)
+  } catch (err) {
+    alert("Encoding error: " + err.message)
+  }
 })
 
 decodeElm.addEventListener("click", e => {
-  flaskPlain.update(atob(flaskEncoded.textarea.value))
+  try {
+    plainText.value = atob(encodedText.value)
+  } catch (err) {
+    alert("Decoding error: " + err.message)
+  }
 })
 
 clearElm.addEventListener("click", e => {
-  flaskEncoded.update("")
-  flaskPlain.update("")
+  encodedText.value = ""
+  plainText.value = ""
 })

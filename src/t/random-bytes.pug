@@ -1,0 +1,25 @@
+extends ../_base.pug
+
+block content
+    article
+        h2 Random Bytes Generator
+        .center.gap
+            label Number of Bytes
+            input(type="number" id="byte-count" value="16" min="1" max="1024" style="width: 150px; text-align: center;")
+            label Output Format
+            label.option
+                input(type="radio" name="format" value="hex" checked)
+                | &nbsp;
+                span Hexadecimal
+            label.option
+                input(type="radio" name="format" value="base64")
+                | &nbsp;
+                span Base64
+            label.option
+                input(type="radio" name="format" value="decimal")
+                | &nbsp;
+                span Decimal (comma-separated)
+            button#generate Generate Random Bytes
+            label Result
+            textarea#result(rows="8" readonly)
+            script(src="random-bytes.js?v=20251127")

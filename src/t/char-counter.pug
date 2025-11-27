@@ -1,0 +1,31 @@
+extends ../_base.pug
+
+block content
+    article
+        h2 Character &amp; Word Counter
+        .center.gap
+            label Text
+            textarea#text(rows="12")
+        .center.gap
+        table(style="margin: 0 auto; text-align: left; border-spacing: 10px;")
+            tr
+                td
+                    strong Characters:
+                td#char-count 0
+            tr
+                td
+                    strong Characters (no spaces):
+                td#char-no-space-count 0
+            tr
+                td
+                    strong Words:
+                td#word-count 0
+            tr
+                td
+                    strong Lines:
+                td#line-count 0
+            tr
+                td
+                    strong Paragraphs:
+                td#paragraph-count 0
+            script(src="char-counter.js?v=20251127")

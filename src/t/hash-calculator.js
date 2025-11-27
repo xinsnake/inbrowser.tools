@@ -1,9 +1,6 @@
-const flaskText = new CodeFlask()
-flaskText.run("#text")
-const flaskHmac = new CodeFlask()
-flaskHmac.run("#hmac")
-const flaskResult = new CodeFlask()
-flaskResult.run("#result")
+const text = document.getElementById("text")
+const hmacInput = document.getElementById("hmac")
+const result = document.getElementById("result")
 
 let method = ""
 let hmac = false
@@ -24,12 +21,12 @@ const hash = () => {
     return
   }
 
-  const text = flaskText.textarea.value
+  const textValue = text.value
   if (hmac) {
-    const hmacText = flaskHmac.textarea.value
-    flaskResult.update(o(hmacText, text))
+    const hmacText = hmacInput.value
+    result.value = o(hmacText, textValue)
   } else {
-    flaskResult.update(o(text))
+    result.value = o(textValue)
   }
 }
 
@@ -45,7 +42,7 @@ for (const i of inputs) {
           hmacDiv.style.display = "block"
         } else {
           hmacDiv.style.display = "none"
-          flaskHmac.update("")
+          hmacInput.value = ""
         }
         break
       case "method":
@@ -56,5 +53,5 @@ for (const i of inputs) {
   })
 }
 
-flaskText.onUpdate(hash)
-flaskHmac.onUpdate(hash)
+text.addEventListener('input', hash)
+hmacInput.addEventListener('input', hash)

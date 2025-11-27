@@ -1,0 +1,18 @@
+extends ../_base.pug
+
+block content
+    article
+        h2 QR Code Generator
+        .center.gap
+            label Text or URL
+            textarea#text(rows="6")
+        .center.gap
+            label Size
+            input(type="number" id="size" value="256" min="128" max="512" step="64" style="width: 100px; text-align: center;")
+            | px
+            button#generate Generate QR Code
+            button#download Download PNG
+        .center.gap
+            #qr-container
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js")
+        script(src="qr-code.js?v=20251127")

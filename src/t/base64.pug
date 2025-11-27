@@ -1,15 +1,16 @@
 extends ../_base.pug
 
 block content
-    h2 base64 converter
-    p.center
-        label Plain
-        #plain(data-language="plain")
-    p.center
-        button#encode Encode
-        button#decode Decode
-        button#clear Clear
-    p.center
-        label Encoded
-        #encoded(data-language="plain")
-    script(src="base64.js")
+    article
+        h2 Base64 Converter
+        .center.gap
+            label Plain
+            textarea#plain(rows="6")
+        .center.gap
+            button#encode Encode
+            button#decode Decode
+            button#clear Clear
+        .center.gap
+            label Encoded
+            textarea#encoded(rows="6")
+        script(src="base64.js?v=20251127")

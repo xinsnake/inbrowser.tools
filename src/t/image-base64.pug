@@ -1,0 +1,20 @@
+extends ../_base.pug
+
+block content
+    article
+        h2 Image to Base64 Converter
+        .center.gap
+            label Select an Image
+            input(type="file" id="file-input" accept="image/*" style="display: none;")
+            button#select-file Select Image File
+            #file-info(style="font-size: 14px; color: #666;") No file selected
+        .center.gap
+            #preview-container(style="max-width: 400px; margin: 0 auto;")
+                #image-preview
+        .center.gap
+            button#copy-base64(style="display: none;") Copy Base64
+            button#download-txt(style="display: none;") Download as .txt
+        .center.gap
+            label Base64 Output
+            textarea#base64(rows="8" readonly style="display: none;")
+        script(src="image-base64.js?v=20251127")

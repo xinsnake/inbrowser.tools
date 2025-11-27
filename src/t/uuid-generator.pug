@@ -1,0 +1,12 @@
+extends ../_base.pug
+
+block content
+    article
+        h2 UUID Generator
+        .center.gap
+            label Quantity
+            input(type="number" id="quantity" value="1" min="1" max="100" style="width: 100px; text-align: center;")
+            button#generate Generate UUIDs
+            label Result
+            textarea#result(rows="12" readonly)
+            script(src="uuid-generator.js?v=20251127")

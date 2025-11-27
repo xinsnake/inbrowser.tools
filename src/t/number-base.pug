@@ -1,0 +1,18 @@
+extends ../_base.pug
+
+block content
+    article
+        h2 Number Base Converter
+        .center.gap
+            label Binary (Base 2)
+            textarea#binary(rows="3")
+        .center.gap
+            label Decimal (Base 10)
+            textarea#decimal(rows="3")
+        .center.gap
+            label Hexadecimal (Base 16)
+            textarea#hex(rows="3")
+        .center.gap
+            button#clear Clear All
+            #error-msg.error
+        script(src="number-base.js?v=20251127")

@@ -41,26 +41,8 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: "./src/",
-          src: ["assets/**/*.*", "**/*.js", "favicon.ico"],
+          src: ["assets/**/*.*", "**/*.js", "favicon.ico", "robots.txt", "sitemap.xml"],
           dest: "dist/"
-        }]
-      },
-      vendor: {
-        files: [{
-          expand: true,
-          cwd: "./node_modules/",
-          src: [
-            "crypto-js/crypto-js.js",
-            "codeflask/src/codeflask.css",
-            "codeflask/src/codeflask.js",
-            "js-yaml/dist/js-yaml.js",
-            "normalize.css/normalize.css",
-            "prismjs/prism.js",
-            "prismjs/themes/prism-tomorrow.css",
-            "prismjs/themes/prism.css"
-          ],
-          flatten: true,
-          dest: "dist/vendor/"
         }]
       }
     },
@@ -79,6 +61,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-pug")
   grunt.loadNpmTasks("grunt-contrib-watch")
 
-  grunt.registerTask("default", ["clean", "pug", "copy:assets", "copy:vendor", "watch"])
-  grunt.registerTask("deploy", ["clean", "pug", "copy:assets", "copy:vendor", "aws_s3"])
+  grunt.registerTask("default", ["clean", "pug", "copy:assets", "watch"])
+  grunt.registerTask("deploy", ["clean", "pug", "copy:assets", "aws_s3"])
 }

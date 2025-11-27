@@ -1,19 +1,50 @@
 extends _base.pug
 
 block content
-    h3 tools
-    ul.site-index.center
-        li base64 converter: <a href="/t/base64.html">open</a>
-        li json formatter: <a href="/t/json-fmt.html">open</a>
-        li json yaml converter: <a href="/t/json-yaml.html">open</a>
-        li hash calculator: <a href="/t/hash-calculator.html">open</a>
-    br
-    br
-    h3 why this site?
-    p.center(style="max-width: 400px; margin: 10px auto; line-height: 1.3em; font-size: 14px;")
-        | Simply because I don't trust other online tools, especially those that send data to the server to process.
-        | They may be storing the data I send to them.
-    p.center(style="max-width: 400px; margin: 10px auto; line-height: 1.3em; font-size: 14px;")
-        | Whereas here, everything happens in <em>your browser</em>, and never leave your browser.
-    p.center(style="max-width: 400px; margin: 10px auto; line-height: 1.3em; font-size: 14px;")
-        | No ads, no tracking, no anything, just the bare minimum needed to make the tool useful.
+    section
+        hgroup
+            h2 Privacy-First Developer Tools
+            p Everything runs in your browser
+        
+        .grid
+            article
+                h4 Encoders &amp; Converters
+                ul
+                    li: a(href="/t/base64.html") Base64 Converter
+                    li: a(href="/t/hex-ascii.html") Hex to ASCII Converter
+                    li: a(href="/t/number-base.html") Number Base Converter
+                    li: a(href="/t/image-base64.html") Image to Base64 Converter
+                    li: a(href="/t/qr-code.html") QR Code Generator
+            
+            article
+                h4 Data Tools
+                ul
+                    li: a(href="/t/json-fmt.html") JSON Formatter
+                    li: a(href="/t/json-yaml.html") JSON YAML Converter
+                    li: a(href="/t/jwt-decoder.html") JWT Token Decoder
+                    li: a(href="/t/markdown-preview.html") Markdown to HTML Preview
+            
+            article
+                h4 Generators
+                ul
+                    li: a(href="/t/uuid-generator.html") UUID Generator
+                    li: a(href="/t/password-generator.html") Password Generator
+                    li: a(href="/t/random-number.html") Random Number Generator
+                    li: a(href="/t/random-bytes.html") Random Bytes Generator
+                    li: a(href="/t/hash-calculator.html") Hash Calculator
+            
+            article
+                h4 Utilities
+                ul
+                    li: a(href="/t/char-counter.html") Character &amp; Word Counter
+                    li: a(href="/t/unix-timestamp.html") Unix Timestamp Converter
+                    li: a(href="/t/color-converter.html") Color Picker &amp; Converter
+    
+    section
+        article
+            h3 Why This Site?
+            p
+                | I built this because I don't trust other online tools with my data. Many of them send your information to their servers, 
+                | where it could be stored, logged, or worse.
+            p
+                | Here, everything runs directly in <em>your browser</em>. Your data never leaves your machine.

@@ -1,0 +1,33 @@
+extends ../_base.pug
+
+block content
+    article
+        h2 Unix Timestamp Converter
+        .center.gap
+            h4 Current Time
+            h3#current-timestamp(style="margin: 10px 0; font-family: 'Courier New', Courier, monospace;") -
+            p#current-datetime(style="margin: 5px 0; color: #666;") -
+            button#use-current Use Current Time
+    
+    article
+        h3 Timestamp → Date &amp; Time
+        .center.gap
+            label Enter Unix Timestamp (Seconds)
+            input(type="number" id="timestamp" placeholder="e.g. 1732742400" style="width: 100%; max-width: 400px; padding: 5px; text-align: center; font-size: 16px;")
+            label Timezone
+            select#timezone(style="padding: 5px; font-size: 14px;")
+                option(value="UTC") UTC
+                option(value="local" selected) Local Time
+            label Result
+            #datetime-result(style="font-size: 16px; margin: 10px 0; padding: 15px; border: 1px solid var(--pico-muted-border-color); border-radius: 5px; font-family: 'Courier New', Courier, monospace;")
+                | Enter a timestamp above
+    
+    article
+        h3 Date &amp; Time → Timestamp
+        .center.gap
+            label Select Date &amp; Time
+            input(type="datetime-local" id="datetime-input" style="padding: 5px; font-size: 14px; width: 100%; max-width: 400px;")
+            button#convert-to-timestamp Convert to Timestamp
+            label Result
+            #timestamp-result(style="font-size: 16px; margin: 10px 0; font-family: 'Courier New', Courier, monospace;") -
+        script(src="unix-timestamp.js?v=20251127")

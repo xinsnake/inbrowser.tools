@@ -1,0 +1,17 @@
+extends ../_base.pug
+
+block content
+    article
+        h2 Hex to ASCII Converter
+        .center.gap
+            label Hex
+            textarea#hex(rows="6")
+        .center.gap
+            button#to-ascii To ASCII
+            button#to-hex To Hex
+            button#clear Clear
+            #error-msg.error
+        .center.gap
+            label ASCII
+            textarea#ascii(rows="6")
+            script(src="hex-ascii.js?v=20251127")

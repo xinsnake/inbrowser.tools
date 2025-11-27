@@ -1,12 +1,13 @@
 extends ../_base.pug
 
 block content
-    h2 json formatter
-    p.center
-        label json goes here
-        #json(data-language="javascript", style="height: 300px")
-        #error-msg.error
-    p.center
-        button#prettify Prettify
-        button#minify Minify
-    script(src="json-fmt.js")
+    article
+        h2 JSON Formatter
+        .center.gap
+            label JSON Goes Here
+            textarea#json(rows="12")
+            #error-msg.error
+        .center.gap
+            button#prettify Prettify
+            button#minify Minify
+        script(src="json-fmt.js?v=20251127")
